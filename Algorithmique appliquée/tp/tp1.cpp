@@ -1,15 +1,18 @@
+/*  programme cryptographie(tp1)
+*   but: crypter et dÃ©crypter un message
+*   date: 25/09/2016
+*/
+
 #include <iostream>
 #include <stdio.h>
 #include <string.h>
 using namespace std;
 
-    /*
 
-    */
 int main(int argc, char *argv[]){
 
-    // déclarations
-    string message, resultat, key = "kljglfgkjùlkpoejkglknmhkjùmkqrzporghkhlkkjhgcryptographiecryptographiecryptographiecrypt";
+    // dï¿½clarations
+    string message, resultat, key = "kljglfgkjï¿½lkpoejkglknmhkjï¿½mkqrzporghkhlkkjhgcryptographiecryptographiecryptographiecrypt";
     int k, middle;
     char decalage = '-';
 
@@ -23,13 +26,13 @@ int main(int argc, char *argv[]){
     }
     cout << "Message crypt\x82= " << resultat << std::endl;
 
-    //décryptage du message
+    //dï¿½cryptage du message
     message ="";
     for(k=0;k<resultat.length();k++){
         message += ((resultat[k]-decalage)^key[k% key.length()]);
     }
 
-    // décalage du milieu si le message est impair
+    // dï¿½calage du milieu si le message est impair
     if(message.length() %2 != 0){
         middle++;
     }
