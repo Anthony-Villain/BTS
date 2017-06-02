@@ -1,0 +1,58 @@
+#!/usr/bin/env python
+# coding: utf-8
+
+def dectohex(dec):
+    """
+        @param: un entier décimal
+        @return: une valeur en base 16 sous la forme d'une chaine
+    """
+    hexNum = ""
+    # division successive de 16 tant que dec est différent de 0
+    while dec != 0:
+        hexNum+=tabHexa[dec%16]
+        dec //=16
+    return hexNum[::-1] # retourne le tableau inversé
+
+def hextodec(heex):
+    """
+        @param: une chaine de caractère
+        @return: un entier décimal
+    """
+    puissance =0
+    decNum =0
+    for digit in range (len(heex), 0,-1): #Parcours la chaine dans le sens inverse
+        selectDigit = heex[digit-1] #selectionne un digit
+        for indice in range(len(tabHexa)): # obtient l'indice du digit selectionné
+            if(selectDigit == tabHexa[indice]):
+                index = indice
+        decNum = decNum + index * 16 ** puissance # fait la somme des digits selectionnés par la puissance de 16
+        puissance +=1
+    return decNum
+
+if __name__ == '__main__':
+    #initialisation
+    programme =0
+    tabHexa = "0123456789ABCDEF"
+    dec =0
+    heex = ''
+
+    #boucle du programme
+    while programme != 3:
+        #affichage du menu
+        print("------------------------------------------------------------")
+        print("Souhaites-vous:")
+        print("- Convertir un nombre décimal en héxadecimal? (1)")
+        print("- Convertir un nombre héxadecimal en décimal? (2)")
+        print("- Quitter l'application (3)")
+        print("------------------------------------------------------------")
+        programme = input()
+
+        #conversion d'un nombre décimal en nombre héxadecimal
+        if programme == 1 :
+            dec = input("Veuillez entrer un nombre décimal:")
+            print(dectohex(dec))
+        else:
+            #conversion d'un nombre héxadecimal en nombre décimal
+            if programme == 2:
+                heex = raw_input("Veuillez entrer un nombre héxadecimal:").upper()
+                print(hextodec(heex))

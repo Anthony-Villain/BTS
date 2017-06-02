@@ -1,0 +1,40 @@
+#!/usr/bin/env python
+# coding: utf-8
+
+"""
+    programme: 'quicksort recursif'
+    objectif: 'trier un tableau'
+    auteur: 'Anthony Villain'
+"""
+
+def partitionner(tab,first,last,pivot):
+    """
+        @param: tab d'entier, première et dernière valeur du tableau, le pivot
+        @return: la position finale du pivot
+    """
+    tab[last], tab[pivot] = tab[pivot], tab[last] # le pivot est placé à la fin du tableau
+    j= first
+    for i in range(first,last):
+        if tab[i] < tab[last]:  # tous les éléments inférieurs au pivot sont placés en début de tableau
+            tab[j], tab[i] = tab[i], tab[j] # si la valeur est inférieur au pivot elle est placé à sa droite.
+            j+=1
+    tab[j], tab[last] =  tab[last], tab[j] #on place le pivot à sa place
+    return j
+
+def quicksort(tab, first, last):
+    """
+        @param: un tableau d'entier, la première et la dernière valeur du tableau
+        @return: le tableau trié recursivement
+    """
+    if first < last: #condition d'arrêt de la recurisivité
+        pivot = int((first + last) /2) #utilise la valeur du milieu comme pivot
+        pivot = partitionner(tab, first, last,pivot) #établit deux partitions du tableau
+        quicksort(tab, first, pivot-1) # tri de la première partition
+        quicksort(tab, pivot+1, last) # tri de la deuxième partition
+    return tab
+
+
+if __name__ == '__main__':
+
+    tab = [10,9,8,7,22,55,6,5,4,3,2,1,91,23,12,11]
+    print quicksort(tab,0,len(tab)-1)
