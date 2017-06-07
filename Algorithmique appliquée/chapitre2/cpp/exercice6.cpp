@@ -2,7 +2,7 @@
 *  but : saisir des valeurs, afficher les facteurs premiers, puis au final
 *        afficher une seule fois chaque facteur premier qui est apparu
 *        Ceci est la version optimisée
-*  date : 26/10/2011
+*  date : 26/10/2016
 */
 #include <iostream>
 using namespace std;

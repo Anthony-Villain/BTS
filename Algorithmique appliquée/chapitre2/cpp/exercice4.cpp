@@ -1,6 +1,6 @@
 /* programme villes (exercice 4)
 *  but : permet d'afficher des distances entre villes
-*  date : 17/10/2011
+*  date : 17/10/2016
 */
 #include <iostream>
 #include <myconio.h>
